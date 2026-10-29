@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyWay Travel Agency</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <style>
+    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #0752b5;
+  --dark-blue: #102b4e;
+  --yellow: #ffb91f;
+  --light: #f2f8ff;
+  --text: #20334d;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+.primary-btn {
+  cursor: pointer;
+}
+
+.navbar {
+  min-height: 76px;
+  padding: 14px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px #102b4e12;
+}
+
+.logo {
+  color: var(--blue);
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.logo span {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  padding-left: 32px;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar nav a {
+  color: var(--dark-blue);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.navbar nav a:hover {
+  color: var(--blue);
+}
+
+.nav-btn {
+  background: var(--blue);
+  color: white;
+  border-radius: 30px;
+  padding: 11px 20px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.menu-toggle {
+  display: none;
+  background: var(--light);
+  border: 0;
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 22px;
+}
+
+.hero {
+  min-height: 490px;
+  padding: 75px 8%;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, #092849d9, #09284935),
+    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=85")
+    center 55% / cover no-repeat;
+  color: white;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.eyebrow {
+  color: var(--blue);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.hero .eyebrow {
+  color: var(--yellow);
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.13;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: var(--yellow);
+}
+
+.hero-content > p:not(.eyebrow) {
+  max-width: 510px;
+  margin-bottom: 28px;
+  font-size: 17px;
+}
+
+.primary-btn {
+  display: inline-block;
+  background: var(--yellow);
+  color: #102b4e;
+  border: 0;
+  border-radius: 8px;
+  padding: 13px 22px;
+  font-weight: 800;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  background: #ffc94e;
+}
+
+.section {
+  padding: 75px 7%;
+}
+
+.booking-section {
+  max-width: 1150px;
+  margin: -35px auto 0;
+  position: relative;
+  z-index: 2;
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 35px #102b4e18;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section-heading h2,
+.about h2,
+.contact-section h2 {
+  color: var(--dark-blue);
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.booking-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #d6e2f0;
+  border-radius: 7px;
+  background: white;
+  color: var(--text);
+  outline-color: var(--blue);
+}
+
+.search-btn {
+  align-self: end;
+  min-height: 47px;
+}
+
+.message {
+  margin-top: 18px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.destinations {
+  background: #fff;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.destination-card {
+  border: 1px solid #e0eaf5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 5px 18px #102b4e0b;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px #102b4e18;
+}
+
+.destination-card img {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 18px;
+}
+
+.card-content h3 {
+  color: var(--dark-blue);
+  font-size: 21px;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #62748a;
+  margin: 5px 0 16px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-bottom span {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.book-destination {
+  background: var(--light);
+  border: 0;
+  color: var(--blue);
+  border-radius: 7px;
+  padding: 8px 12px;
+  font-weight: 700;
+}
+
+.book-destination:hover {
+  background: #dcecff;
+}
+
+.benefits {
+  padding: 38px 7%;
+  background: var(--light);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  text-align: center;
+}
+
+.benefit-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: white;
+  color: var(--blue);
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.benefits h3 {
+  font-size: 16px;
+  color: var(--dark-blue);
+  margin: 10px 0 4px;
+}
+
+.benefits p {
+  font-size: 13px;
+  color: #64778d;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  min-height: 320px;
+  max-height: 440px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.about-content > p:not(.eyebrow) {
+  margin: 15px 0;
+  color: #62748a;
+}
+
+.about-content ul {
+  list-style: none;
+  margin: 20px 0 25px;
+}
+
+.about-content li {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.about-content li::first-letter {
+  color: #16884b;
+}
+
+.contact-section {
+  padding: 65px 20px;
+  text-align: center;
+  background: var(--light);
+}
+
+.contact-section > p:not(.eyebrow) {
+  color: #62748a;
+  margin: 14px 0 24px;
+}
+
+footer {
+  padding: 30px 7%;
+  background: var(--dark-blue);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+footer .logo {
+  color: white;
+}
+
+footer p {
+  font-size: 13px;
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .navbar nav {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .navbar nav.open {
+    display: flex;
+  }
+
+  .navbar nav a {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .destination-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .booking-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .benefits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    padding: 12px 5%;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .hero {
+    min-height: 430px;
+    padding: 55px 6%;
+  }
+
+  .hero-content > p:not(.eyebrow) {
+    font-size: 15px;
+  }
+
+  .section {
+    padding: 48px 5%;
+  }
+
+  .booking-section {
+    margin: 0;
+    border-radius: 0;
+    padding: 35px 5%;
+  }
+
+  .booking-form,
+  .destination-grid,
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-card img {
+    height: 220px;
+  }
+
+  .benefits {
+    padding: 35px 5%;
+    gap: 25px 12px;
+  }
+
+  .about-image img {
+    min-height: 240px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 5%;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">✈ SkyWay
+      <span>Travel Agency</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#booking">Flights</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#booking" class="nav-btn">Book Now →</a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">YOUR JOURNEY STARTS HERE</p>
+        <h1>Explore the World.<br>
+          <span>Your Next Adventure Awaits!</span>
+        </h1>
+        <p>
+          Discover amazing destinations, book flights,
+          and create unforgettable travel experiences
+          with SkyWay Travel Agency.
+        </p>
+        <a href="#destinations" class="primary-btn">
+          Explore Destinations →
+        </a>
+      </div>
+    </section>
+
+    <section class="booking-section" id="booking">
+      <div class="section-heading">
+        <p class="eyebrow">PLAN YOUR TRIP</p>
+        <h2>Find Your Next Flight</h2>
+      </div>
+
+      <form id="bookingForm" class="booking-form">
+        <label>
+          From
+          <input name="from" type="text"
+            placeholder="e.g. Mogadishu" required>
+        </label>
+
+        <label>
+          To
+          <input name="to" type="text"
+            placeholder="e.g. Istanbul" required>
+        </label>
+
+        <label>
+          Departure Date
+          <input name="departure" type="date"
+            id="departure" required>
+        </label>
+
+        <label>
+          Return Date
+          <input name="returnDate" type="date"
+            id="returnDate">
+        </label>
+
+        <label>
+          Passengers
+          <select name="passengers">
+            <option value="1">1 Adult</option>
+            <option value="2">2 Adults</option>
+            <option value="3">3 Adults</option>
+            <option value="4">4 Adults</option>
+            <option value="5">5 Adults</option>
+          </select>
+        </label>
+
+        <button type="submit" class="primary-btn search-btn">
+          🔎 Search Flights
+        </button>
+      </form>
+
+      <p id="bookingMessage" class="message"
+        role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="destinations section" id="destinations">
+      <div class="section-heading">
+        <p class="eyebrow">EXPLORE THE WORLD</p>
+        <h2>Popular Destinations</h2>
+        <p>Discover beautiful places for your next adventure.</p>
+      </div>
+
+      <div class="destination-grid">
+        <article class="destination-card">
+          <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=700&q=80"
+            alt="Tropical beach in Maldives">
+          <div class="card-content">
+            <h3>Maldives</h3>
+            <p>Beautiful beaches and blue waters.</p>
+            <div class="card-bottom">
+              <span>From $350</span>
+              <button class="book-destination"
+                data-destination="Maldives">Book →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="destination-card">
+          <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=700&q=80"
+            alt="Istanbul city and mosque">
+          <div class="card-content">
+            <h3>Istanbul</h3>
+            <p>History, culture and amazing views.</p>
+            <div class="card-bottom">
+              <span>From $500</span>
+              <button class="book-destination"
+                data-destination="Istanbul">Book →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="destination-card">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80"
+            alt="Dubai skyline">
+          <div class="card-content">
+            <h3>Dubai</h3>
+            <p>Luxury, shopping and city adventures.</p>
+            <div class="card-bottom">
+              <span>From $600</span>
+              <button class="book-destination"
+                data-destination="Dubai">Book →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="destination-card">
+          <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=700&q=80"
+            alt="Nairobi city">
+          <div class="card-content">
+            <h3>Nairobi</h3>
+            <p>City life and African adventures.</p>
+            <div class="card-bottom">
+              <span>From $450</span>
+              <button class="book-destination"
+                data-destination="Nairobi">Book →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="destination-card">
+          <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=700&q=80"
+            alt="Beautiful ocean destination">
+          <div class="card-content">
+            <h3>Zanzibar</h3>
+            <p>Relax on stunning island beaches.</p>
+            <div class="card-bottom">
+              <span>From $550</span>
+              <button class="book-destination"
+                data-destination="Zanzibar">Book →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="destination-card">
+          <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=700&q=80"
+            alt="Doha city architecture">
+          <div class="card-content">
+            <h3>Doha</h3>
+            <p>Modern architecture and rich culture.</p>
+            <div class="card-bottom">
+              <span>From $650</span>
+              <button class="book-destination"
+                data-destination="Doha">Book →</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div>
+        <span class="benefit-icon">✈</span>
+        <h3>Affordable Travel</h3>
+        <p>Options for different budgets.</p>
+      </div>
+      <div>
+        <span class="benefit-icon">✓</span>
+        <h3>Personal Assistance</h3>
+        <p>Help planning your trip.</p>
+      </div>
+      <div>
+        <span class="benefit-icon">◷</span>
+        <h3>Travel Support</h3>
+        <p>Contact our team for assistance.</p>
+      </div>
+      <div>
+        <span class="benefit-icon">◎</span>
+        <h3>Worldwide Trips</h3>
+        <p>Explore destinations around the world.</p>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80"
+          alt="View from an airplane window">
+      </div>
+      <div class="about-content">
+        <p class="eyebrow">ABOUT SKYWAY TRAVEL</p>
+        <h2>Your Trusted Travel Partner</h2>
+        <p>
+          At SkyWay Travel Agency, we help travelers
+          plan their journeys with confidence. From
+          flight inquiries to holiday planning, we are
+          here to help make your trip easier.
+        </p>
+        <ul>
+          <li>✓ Domestic and international flight inquiries</li>
+          <li>✓ Hotel reservation assistance</li>
+          <li>✓ Customized travel packages</li>
+          <li>✓ Friendly customer support</li>
+        </ul>
+        <a href="#contact" class="primary-btn">Contact Us →</a>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <p class="eyebrow">LET'S PLAN YOUR TRIP</p>
+      <h2>Ready for Your Next Adventure?</h2>
+      <p>Contact SkyWay Travel Agency to discuss your journey.</p>
+      <a href="#booking" class="primary-btn">Start Booking →</a>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#home" class="logo">✈ SkyWay
+      <span>Travel Agency</span>
+    </a>
+    <p>Explore more. Travel better.</p>
+    <p>© <span id="year"></span> SkyWay Travel Agency.</p>
+  </footer>
+
+</body>
+</html>
+<script>
+
+
+
+
+  
+const menuToggle = document.querySelector("#menuToggle");
+const navMenu = document.querySelector("#navMenu");
+
+const bookingForm = document.querySelector("#bookingForm");
+const bookingMessage = document.querySelector("#bookingMessage");
+
+const departureInput = document.querySelector("#departure");
+const returnInput = document.querySelector("#returnDate");
+
+// 1. Mobile navigation
+menuToggle.addEventListener("click", () => {
+  const isOpen = navMenu.classList.toggle("open");
+
+  menuToggle.setAttribute("aria-expanded", isOpen);
+});
+
+navMenu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+// 2. Set today's date as the earliest departure date
+const today = new Date();
+const todayString = [
+  today.getFullYear(),
+  String(today.getMonth() + 1).padStart(2, "0"),
+  String(today.getDate()).padStart(2, "0"),
+].join("-");
+
+departureInput.min = todayString;
+returnInput.min = todayString;
+
+// Update the earliest return date when departure changes
+departureInput.addEventListener("change", () => {
+  returnInput.min = departureInput.value || todayString;
+
+  if (
+    returnInput.value &&
+    returnInput.value < departureInput.value
+  ) {
+    returnInput.value = "";
+  }
+});
+
+// 3. Handle booking form
+bookingForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(bookingForm);
+
+  const from = formData.get("from").trim();
+  const to = formData.get("to").trim();
+  const departure = formData.get("departure");
+  const returnDate = formData.get("returnDate");
+  const passengers = formData.get("passengers");
+
+  if (from.toLowerCase() === to.toLowerCase()) {
+    bookingMessage.textContent =
+      "Departure and destination must be different.";
+    bookingMessage.style.color = "#c62828";
+    return;
+  }
+
+  if (returnDate && returnDate < departure) {
+    bookingMessage.textContent =
+      "Return date cannot be before departure.";
+    bookingMessage.style.color = "#c62828";
+    return;
+  }
+
+  const booking = {
+    from,
+    to,
+    departure,
+    returnDate: returnDate || "One-way trip",
+    passengers,
+  };
+
+  // Save this demo request in the browser
+  const previousBookings = JSON.parse(
+    localStorage.getItem("skywayBookings") || "[]"
+  );
+
+  previousBookings.push(booking);
+
+  localStorage.setItem(
+    "skywayBookings",
+    JSON.stringify(previousBookings)
+  );
+
+  bookingMessage.style.color = "#16884b";
+  bookingMessage.textContent =
+    `Request saved! ${from} → ${to}, departure: ${departure}. ` +
+    "This is a demo request, not a confirmed flight booking.";
+
+  console.log("Travel booking request:", booking);
+});
+
+// 4. Destination buttons
+document.querySelectorAll(".book-destination").forEach((button) => {
+  button.addEventListener("click", () => {
+    const destination = button.dataset.destination;
+
+    document.querySelector('[name="to"]').value = destination;
+
+    document.querySelector("#booking").scrollIntoView({
+      behavior: "smooth",
+    });
+
+    bookingMessage.style.color = "#0752b5";
+    bookingMessage.textContent =
+      `You selected ${destination}. Complete the form to continue.`;
+  });
+});
+
+// 5. Automatically update the footer year
+document.querySelector("#year").textContent =
+  new Date().getFullYear();
+
+</script>
