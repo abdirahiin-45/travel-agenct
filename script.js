@@ -6,7 +6,6 @@ const whatsappNumber = "252617454321";
 const bookingForm = document.getElementById("bookingForm");
 const bookingMessage = document.getElementById("bookingMessage");
 
-
 // BOOKING FORM
 if (bookingForm && bookingMessage) {
 
@@ -17,38 +16,57 @@ if (bookingForm && bookingMessage) {
     const formData = new FormData(bookingForm);
 
     // CUSTOMER DETAILS
-    const customerName = formData.get("customerName").trim();
-    const customerPhone = formData.get("customerPhone").trim();
+    const customerName =
+      (formData.get("customerName") || "").toString().trim();
+
+    const customerPhone =
+      (formData.get("customerPhone") || "").toString().trim();
 
     // FLIGHT DETAILS
-    const from = formData.get("from").trim();
-    const to = formData.get("to").trim();
+    const from =
+      (formData.get("from") || "").toString().trim();
 
-    const departure = formData.get("departure");
-    const returnDate = formData.get("returnDate");
+    const to =
+      (formData.get("to") || "").toString().trim();
+
+    const departure = formData.get("departure") || "";
+    const returnDate = formData.get("returnDate") || "";
 
     // PASSENGERS
-    const adults = Number(formData.get("adults")) || 1;
+    const adults = Number(formData.get("adults")) || 0;
     const children = Number(formData.get("children")) || 0;
 
+    // TOTAL PASSENGERS
     const passengers = adults + children;
+
+    // CHECK REQUIRED DETAILS
+    if (!customerName || !customerPhone || !from || !to || !departure) {
+      bookingMessage.textContent =
+        "Please fill in all required fields.";
+      bookingMessage.style.color = "red";
+      return;
+    }
+
+    // CHECK PASSENGERS
+    if (adults < 1) {
+      bookingMessage.textContent =
+        "At least one adult is required.";
+      bookingMessage.style.color = "red";
+      return;
+    }
 
     // CHECK SAME DESTINATION
     if (from.toLowerCase() === to.toLowerCase()) {
-
       bookingMessage.textContent =
         "Departure and destination must be different.";
-
       bookingMessage.style.color = "red";
       return;
     }
 
     // CHECK RETURN DATE
     if (returnDate && returnDate < departure) {
-
       bookingMessage.textContent =
         "Return date cannot be before departure.";
-
       bookingMessage.style.color = "red";
       return;
     }
@@ -89,7 +107,6 @@ SkyWay Travel Agency
 
 }
 
-
 // MOBILE MENU
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
@@ -119,21 +136,20 @@ if (menuToggle && navMenu) {
 
 }
 
-
 // DESTINATION BOOKING BUTTONS
 document.querySelectorAll(".book-destination").forEach(button => {
 
   button.addEventListener("click", () => {
 
     const destination = button.dataset.destination;
-
     const toInput = document.getElementById("to");
+    const bookingSection = document.getElementById("booking");
 
-    if (toInput) {
+    if (toInput && bookingSection) {
 
       toInput.value = destination;
 
-      document.getElementById("booking").scrollIntoView({
+      bookingSection.scrollIntoView({
         behavior: "smooth"
       });
 
@@ -142,7 +158,6 @@ document.querySelectorAll(".book-destination").forEach(button => {
   });
 
 });
-
 
 // FOOTER CURRENT YEAR
 const year = document.getElementById("year");
