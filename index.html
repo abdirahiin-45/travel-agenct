@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <meta name="description" content="SkyWay Travel Agency - Book flights and explore amazing destinations around the world.">
+
   <title>SkyWay Travel Agency</title>
 
   <link rel="stylesheet" href="style.css">
@@ -13,565 +15,554 @@
 
 <body>
 
-<!-- HEADER -->
-<header class="navbar">
-
-  <a href="#home" class="logo">
-    ✈ SkyWay
-    <span>Travel Agency</span>
-  </a>
-
-  <button class="menu-toggle"
-    id="menuToggle"
-    aria-label="Toggle navigation"
-    aria-expanded="false">
-    ☰
-  </button>
-
-  <nav id="navMenu">
-    <a href="#home">Home</a>
-    <a href="#destinations">Destinations</a>
-    <a href="#booking">Flights</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <a href="#booking" class="nav-btn">Book Now →</a>
-
-</header>
-
-
-<main>
-
-  <!-- HERO SECTION -->
-  <section class="hero" id="home">
-
-    <div class="hero-content">
-
-      <p class="eyebrow">YOUR JOURNEY STARTS HERE</p>
-
-      <h1>
-        Explore the World.<br>
-        <span>Your Next Adventure Awaits!</span>
-      </h1>
-
-      <p>
-        Discover amazing destinations, book flights,
-        and create unforgettable travel experiences
-        with SkyWay Travel Agency.
-      </p>
-
-      <a href="#destinations" class="primary-btn">
-        Explore Destinations →
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- BOOKING SECTION -->
-  <section class="booking-section" id="booking">
-
-    <div class="section-heading">
-
-      <p class="eyebrow">PLAN YOUR TRIP</p>
-      <h2>Find Your Next Flight</h2>
-
-    </div>
-
-    <form id="bookingForm" class="booking-form">
-
-      <!-- CUSTOMER NAME -->
-      <label for="customerName">
-        Customer Name
-
-        <input
-          type="text"
-          id="customerName"
-          name="customerName"
-          placeholder="Enter your full name"
-          required>
-      </label>
-
-
-      <!-- CUSTOMER PHONE -->
-      <label for="customerPhone">
-        Customer Phone
-
-        <input
-          type="tel"
-          id="customerPhone"
-          name="customerPhone"
-          placeholder="Enter your phone number"
-          required>
-      </label>
-
-
-      <!-- FROM -->
-      <label for="from">
-        From
-
-        <input
-          type="text"
-          id="from"
-          name="from"
-          placeholder="e.g. Mogadishu"
-          required>
-      </label>
-
-
-      <!-- TO -->
-      <label for="to">
-        To
-
-        <input
-          type="text"
-          id="to"
-          name="to"
-          placeholder="e.g. Istanbul"
-          required>
-      </label>
-
-
-      <!-- DEPARTURE DATE -->
-      <label for="departure">
-        Departure Date
-
-        <input
-          type="date"
-          id="departure"
-          name="departure"
-          required>
-      </label>
-
-
-      <!-- RETURN DATE -->
-      <label for="returnDate">
-        Return Date
-
-        <input
-          type="date"
-          id="returnDate"
-          name="returnDate">
-      </label>
-
-
-      <!-- ADULTS -->
-      <label for="adults">
-        Adults
-
-        <select
-          id="adults"
-          name="adults"
-          required>
-
-          <option value="1">1 Adult</option>
-          <option value="2">2 Adults</option>
-          <option value="3">3 Adults</option>
-          <option value="4">4 Adults</option>
-          <option value="5">5 Adults</option>
-          <option value="6">6 Adults</option>
-
-        </select>
-      </label>
-
-
-      <!-- CHILDREN -->
-      <label for="children">
-        Children
-
-        <select
-          id="children"
-          name="children">
-
-          <option value="0">0 Children</option>
-          <option value="1">1 Child</option>
-          <option value="2">2 Children</option>
-          <option value="3">3 Children</option>
-          <option value="4">4 Children</option>
-          <option value="5">5 Children</option>
-
-        </select>
-      </label>
-
-
-      <!-- BOOKING BUTTON -->
-      <button
-        type="submit"
-        class="primary-btn search-btn">
-
-        ✈ Book Through WhatsApp
-
-      </button>
-
-    </form>
-
-    <p
-      id="bookingMessage"
-      class="message"
-      role="status"
-      aria-live="polite">
-    </p>
-
-  </section>
-
-
-  <!-- DESTINATIONS SECTION -->
-  <section class="destinations section" id="destinations">
-
-    <div class="section-heading">
-
-      <p class="eyebrow">EXPLORE THE WORLD</p>
-
-      <h2>Popular Destinations</h2>
-
-      <p>
-        Discover beautiful places for your next adventure.
-      </p>
-
-    </div>
-
-
-    <div class="destination-grid">
-
-
-      <!-- MALDIVES -->
-      <article class="destination-card">
-
-        <img
-          src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=700&q=80"
-          alt="Maldives">
-
-        <div class="card-content">
-
-          <h3>Maldives</h3>
-
-          <p>Beautiful beaches and blue waters.</p>
-
-          <div class="card-bottom">
-
-            <span>From $350</span>
-
-            <button
-              type="button"
-              class="book-destination"
-              data-destination="Maldives">
-
-              Book →
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- ISTANBUL -->
-      <article class="destination-card">
-
-        <img
-          src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=700&q=80"
-          alt="Istanbul">
-
-        <div class="card-content">
-
-          <h3>Istanbul</h3>
-
-          <p>History, culture and amazing views.</p>
-
-          <div class="card-bottom">
-
-            <span>From $500</span>
-
-            <button
-              type="button"
-              class="book-destination"
-              data-destination="Istanbul">
-
-              Book →
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- DUBAI -->
-      <article class="destination-card">
-
-        <img
-          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80"
-          alt="Dubai">
-
-        <div class="card-content">
-
-          <h3>Dubai</h3>
-
-          <p>Luxury, shopping and city adventures.</p>
-
-          <div class="card-bottom">
-
-            <span>From $600</span>
-
-            <button
-              type="button"
-              class="book-destination"
-              data-destination="Dubai">
-
-              Book →
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- NAIROBI -->
-      <article class="destination-card">
-
-        <img
-          src="https://images.openai.com/static-rsc-4/T0NfAJNc7sA-O1yDbQ5JgLmRJWTJQeKZCWeksFxsDb2eIulQeVRsLIKZgRSRrxekDxx5VT7sx_wBDk8DvDEcndNbFqJOD96D87okBkTA_ZNYRxHjs8SROaEDFKhJVazOFlvtIZr7RwRiYGlOx7ZgRhfYypoi7Jn1s4G8FxyrQKyk4ruXo-Yq8YOQwRnd-sSE?purpose=fullsize"
-          alt="Nairobi">
-
-        <div class="card-content">
-
-          <h3>Nairobi</h3>
-
-          <p>City life and African adventures.</p>
-
-          <div class="card-bottom">
-
-            <span>From $450</span>
-
-            <button
-              type="button"
-              class="book-destination"
-              data-destination="Nairobi">
-
-              Book →
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- ZANZIBAR -->
-      <article class="destination-card">
-
-        <img
-          src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=700&q=80"
-          alt="Zanzibar">
-
-        <div class="card-content">
-
-          <h3>Zanzibar</h3>
-
-          <p>Relax on stunning island beaches.</p>
-
-          <div class="card-bottom">
-
-            <span>From $550</span>
-
-            <button
-              type="button"
-              class="book-destination"
-              data-destination="Zanzibar">
-
-              Book →
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- DOHA -->
-      <article class="destination-card">
-
-        <img
-          src="https://images.openai.com/static-rsc-4/5aOnfwoFVq1nteuN_wAKs8rjbs0bscAkU0WjgTtti8X8TNrLJOPTHdu6wbvDFptmad0efwTKAavmYF00ULFWcMTZS4pxUW7rOW0hRv32QaISfGuWNWR1o6zqIkoxaFz2XHloQe0nvixk_CmBCG3A-xiM5NPCENYXyYVlVY_PMfMP1jE0edcq1XLc5sn0HniK?purpose=fullsize"
-          alt="Doha">
-
-        <div class="card-content">
-
-          <h3>Doha</h3>
-
-          <p>Modern architecture and rich culture.</p>
-
-          <div class="card-bottom">
-
-            <span>From $650</span>
-
-            <button
-              type="button"
-              class="book-destination"
-              data-destination="Doha">
-
-              Book →
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- BENEFITS SECTION -->
-  <section class="benefits">
-
-    <div>
-
-      <span class="benefit-icon">✈</span>
-
-      <h3>Affordable Travel</h3>
-
-      <p>Options for different budgets.</p>
-
-    </div>
-
-
-    <div>
-
-      <span class="benefit-icon">✓</span>
-
-      <h3>Personal Assistance</h3>
-
-      <p>Help planning your trip.</p>
-
-    </div>
-
-
-    <div>
-
-      <span class="benefit-icon">◷</span>
-
-      <h3>Travel Support</h3>
-
-      <p>Contact our team for assistance.</p>
-
-    </div>
-
-
-    <div>
-
-      <span class="benefit-icon">◎</span>
-
-      <h3>Worldwide Trips</h3>
-
-      <p>Explore destinations around the world.</p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT SECTION -->
-  <section class="about section" id="about">
-
-    <div class="about-image">
-
-      <img
-        src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80"
-        alt="Airplane view">
-
-    </div>
-
-
-    <div class="about-content">
-
-      <p class="eyebrow">ABOUT SKYWAY TRAVEL</p>
-
-      <h2>Your Trusted Travel Partner</h2>
-
-      <p>
-        At SkyWay Travel Agency, we help travelers
-        plan their journeys with confidence. From
-        flight inquiries to holiday planning, we are
-        here to help make your trip easier.
-      </p>
-
-
-      <ul>
-
-        <li>✓ Domestic and international flight inquiries</li>
-
-        <li>✓ Hotel reservation assistance</li>
-
-        <li>✓ Customized travel packages</li>
-
-        <li>✓ Friendly customer support</li>
-
-      </ul>
-
-
-      <a href="#contact" class="primary-btn">
-        Contact Us →
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTACT SECTION -->
-  <section class="contact-section" id="contact">
-
-    <p class="eyebrow">LET'S PLAN YOUR TRIP</p>
-
-    <h2>Ready for Your Next Adventure?</h2>
-
-    <p>
-      Contact SkyWay Travel Agency to discuss your journey.
-    </p>
-
-    <a href="#booking" class="primary-btn">
-      Start Booking →
+  <!-- HEADER -->
+  <header class="navbar">
+
+    <a href="#home" class="logo">
+      ✈ SkyWay
+      <span>Travel Agency</span>
     </a>
 
-  </section>
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false">
+      ☰
+    </button>
 
-</main>
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#booking">Flights</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#booking" class="nav-btn">Book Now →</a>
+
+  </header>
 
 
-<!-- FOOTER -->
-<footer>
+  <main>
 
-  <a href="#home" class="logo">
-    ✈ SkyWay
-    <span>Travel Agency</span>
-  </a>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
 
-  <p>Explore more. Travel better.</p>
+      <div class="hero-content">
 
-  <p>
-    © <span id="year"></span> SkyWay Travel Agency.
-  </p>
+        <p class="eyebrow">YOUR JOURNEY STARTS HERE</p>
 
-</footer>
+        <h1>
+          Explore the World.<br>
+          <span>Your Next Adventure Awaits!</span>
+        </h1>
+
+        <p>
+          Discover amazing destinations, book flights,
+          and create unforgettable travel experiences
+          with SkyWay Travel Agency.
+        </p>
+
+        <a href="#destinations" class="primary-btn">
+          Explore Destinations →
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOOKING SECTION -->
+    <section class="booking-section" id="booking">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">PLAN YOUR TRIP</p>
+        <h2>Find Your Next Flight</h2>
+
+      </div>
+
+      <form id="bookingForm" class="booking-form">
+
+        <!-- CUSTOMER NAME -->
+        <label for="customerName">
+          Customer Name
+
+          <input
+            type="text"
+            id="customerName"
+            name="customerName"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            required>
+        </label>
+
+
+        <!-- CUSTOMER PHONE -->
+        <label for="customerPhone">
+          Customer Phone
+
+          <input
+            type="tel"
+            id="customerPhone"
+            name="customerPhone"
+            placeholder="Enter your phone number"
+            autocomplete="tel"
+            required>
+        </label>
+
+
+        <!-- FROM -->
+        <label for="from">
+          From
+
+          <input
+            type="text"
+            id="from"
+            name="from"
+            placeholder="e.g. Mogadishu"
+            required>
+        </label>
+
+
+        <!-- TO -->
+        <label for="to">
+          To
+
+          <input
+            type="text"
+            id="to"
+            name="to"
+            placeholder="e.g. Istanbul"
+            required>
+        </label>
+
+
+        <!-- DEPARTURE DATE -->
+        <label for="departure">
+          Departure Date
+
+          <input
+            type="date"
+            id="departure"
+            name="departure"
+            required>
+        </label>
+
+
+        <!-- RETURN DATE -->
+        <label for="returnDate">
+          Return Date
+
+          <input
+            type="date"
+            id="returnDate"
+            name="returnDate">
+        </label>
+
+
+        <!-- ADULTS -->
+        <label for="adults">
+          Adults
+
+          <select
+            id="adults"
+            name="adults"
+            required>
+
+            <option value="1" selected>1 Adult</option>
+            <option value="2">2 Adults</option>
+            <option value="3">3 Adults</option>
+            <option value="4">4 Adults</option>
+            <option value="5">5 Adults</option>
+            <option value="6">6 Adults</option>
+
+          </select>
+        </label>
+
+
+        <!-- CHILDREN -->
+        <label for="children">
+          Children
+
+          <select
+            id="children"
+            name="children">
+
+            <option value="0" selected>0 Children</option>
+            <option value="1">1 Child</option>
+            <option value="2">2 Children</option>
+            <option value="3">3 Children</option>
+            <option value="4">4 Children</option>
+            <option value="5">5 Children</option>
+
+          </select>
+        </label>
+
+
+        <!-- BOOKING BUTTON -->
+        <button
+          type="submit"
+          class="primary-btn search-btn">
+
+          ✈ Book Through WhatsApp
+
+        </button>
+
+      </form>
+
+      <p
+        id="bookingMessage"
+        class="message"
+        role="status"
+        aria-live="polite">
+      </p>
+
+    </section>
+
+
+    <!-- DESTINATIONS SECTION -->
+    <section class="destinations section" id="destinations">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">EXPLORE THE WORLD</p>
+
+        <h2>Popular Destinations</h2>
+
+        <p>
+          Discover beautiful places for your next adventure.
+        </p>
+
+      </div>
+
+
+      <div class="destination-grid">
+
+        <!-- MALDIVES -->
+        <article class="destination-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=700&q=80"
+            alt="Maldives">
+
+          <div class="card-content">
+
+            <h3>Maldives</h3>
+
+            <p>Beautiful beaches and blue waters.</p>
+
+            <div class="card-bottom">
+
+              <span>From $350</span>
+
+              <button
+                type="button"
+                class="book-destination"
+                data-destination="Maldives">
+                Book →
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- ISTANBUL -->
+        <article class="destination-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=700&q=80"
+            alt="Istanbul">
+
+          <div class="card-content">
+
+            <h3>Istanbul</h3>
+
+            <p>History, culture and amazing views.</p>
+
+            <div class="card-bottom">
+
+              <span>From $500</span>
+
+              <button
+                type="button"
+                class="book-destination"
+                data-destination="Istanbul">
+                Book →
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- DUBAI -->
+        <article class="destination-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80"
+            alt="Dubai">
+
+          <div class="card-content">
+
+            <h3>Dubai</h3>
+
+            <p>Luxury, shopping and city adventures.</p>
+
+            <div class="card-bottom">
+
+              <span>From $600</span>
+
+              <button
+                type="button"
+                class="book-destination"
+                data-destination="Dubai">
+                Book →
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- NAIROBI -->
+        <article class="destination-card">
+
+          <img
+            src="https://images.openai.com/static-rsc-4/T0NfAJNc7sA-O1yDbQ5JgLmRJWTJQeKZCWeksFxsDb2eIulQeVRsLIKZgRSRrxekDxx5VT7sx_wBDk8DvDEcndNbFqJOD96D87okBkTA_ZNYRxHjs8SROaEDFKhJVazOFlvtIZr7RwRiYGlOx7ZgRhfYypoi7Jn1s4G8FxyrQKyk4ruXo-Yq8YOQwRnd-sSE?purpose=fullsize"
+            alt="Nairobi">
+
+          <div class="card-content">
+
+            <h3>Nairobi</h3>
+
+            <p>City life and African adventures.</p>
+
+            <div class="card-bottom">
+
+              <span>From $450</span>
+
+              <button
+                type="button"
+                class="book-destination"
+                data-destination="Nairobi">
+                Book →
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- ZANZIBAR -->
+        <article class="destination-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=700&q=80"
+            alt="Zanzibar">
+
+          <div class="card-content">
+
+            <h3>Zanzibar</h3>
+
+            <p>Relax on stunning island beaches.</p>
+
+            <div class="card-bottom">
+
+              <span>From $550</span>
+
+              <button
+                type="button"
+                class="book-destination"
+                data-destination="Zanzibar">
+                Book →
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- DOHA -->
+        <article class="destination-card">
+
+          <img
+            src="https://images.openai.com/static-rsc-4/5aOnfwoFVq1nteuN_wAKs8rjbs0bscAkU0WjgTtti8X8TNrLJOPTHdu6wbvDFptmad0efwTKAavmYF00ULFWcMTZS4pxUW7rOW0hRv32QaISfGuWNWR1o6zqIkoxaFz2XHloQe0nvixk_CmBCG3A-xiM5NPCENYXyYVlVY_PMfMP1jE0edcq1XLc5sn0HniK?purpose=fullsize"
+            alt="Doha">
+
+          <div class="card-content">
+
+            <h3>Doha</h3>
+
+            <p>Modern architecture and rich culture.</p>
+
+            <div class="card-bottom">
+
+              <span>From $650</span>
+
+              <button
+                type="button"
+                class="book-destination"
+                data-destination="Doha">
+                Book →
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- BENEFITS SECTION -->
+    <section class="benefits">
+
+      <div>
+
+        <span class="benefit-icon">✈</span>
+
+        <h3>Affordable Travel</h3>
+
+        <p>Options for different budgets.</p>
+
+      </div>
+
+
+      <div>
+
+        <span class="benefit-icon">✓</span>
+
+        <h3>Personal Assistance</h3>
+
+        <p>Help planning your trip.</p>
+
+      </div>
+
+
+      <div>
+
+        <span class="benefit-icon">◷</span>
+
+        <h3>Travel Support</h3>
+
+        <p>Contact our team for assistance.</p>
+
+      </div>
+
+
+      <div>
+
+        <span class="benefit-icon">◎</span>
+
+        <h3>Worldwide Trips</h3>
+
+        <p>Explore destinations around the world.</p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section class="about section" id="about">
+
+      <div class="about-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80"
+          alt="Airplane view">
+
+      </div>
+
+
+      <div class="about-content">
+
+        <p class="eyebrow">ABOUT SKYWAY TRAVEL</p>
+
+        <h2>Your Trusted Travel Partner</h2>
+
+        <p>
+          At SkyWay Travel Agency, we help travelers
+          plan their journeys with confidence. From
+          flight inquiries to holiday planning, we are
+          here to help make your trip easier.
+        </p>
+
+
+        <ul>
+
+          <li>✓ Domestic and international flight inquiries</li>
+
+          <li>✓ Hotel reservation assistance</li>
+
+          <li>✓ Customized travel packages</li>
+
+          <li>✓ Friendly customer support</li>
+
+        </ul>
+
+
+        <a href="#contact" class="primary-btn">
+          Contact Us →
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+
+      <p class="eyebrow">LET'S PLAN YOUR TRIP</p>
+
+      <h2>Ready for Your Next Adventure?</h2>
+
+      <p>
+        Contact SkyWay Travel Agency to discuss your journey.
+      </p>
+
+      <a href="#booking" class="primary-btn">
+        Start Booking →
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <a href="#home" class="logo">
+      ✈ SkyWay
+      <span>Travel Agency</span>
+    </a>
+
+    <p>Explore more. Travel better.</p>
+
+    <p>
+      © <span id="year"></span> SkyWay Travel Agency.
+    </p>
+
+  </footer>
 
 </body>
 </html>
-```

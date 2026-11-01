@@ -1,4 +1,8 @@
 
+/* =========================
+   GLOBAL SETTINGS
+========================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -38,7 +42,11 @@ button {
   cursor: pointer;
 }
 
-/* NAVBAR */
+
+/* =========================
+   NAVBAR
+========================= */
+
 .navbar {
   min-height: 76px;
   padding: 14px 7%;
@@ -49,7 +57,7 @@ button {
   background: white;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   box-shadow: 0 2px 12px #102b4e12;
 }
 
@@ -78,6 +86,7 @@ button {
   color: var(--dark-blue);
   font-size: 14px;
   font-weight: 600;
+  transition: color 0.2s;
 }
 
 .navbar nav a:hover {
@@ -91,6 +100,11 @@ button {
   padding: 11px 20px;
   font-weight: bold;
   white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.nav-btn:hover {
+  background: var(--dark-blue);
 }
 
 .menu-toggle {
@@ -102,16 +116,22 @@ button {
   font-size: 22px;
 }
 
-/* HERO */
+
+/* =========================
+   HERO SECTION
+========================= */
+
 .hero {
   min-height: 490px;
   padding: 75px 8%;
   display: flex;
   align-items: center;
+
   background:
     linear-gradient(90deg, #092849d9, #09284935),
     url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=85")
     center 55% / cover no-repeat;
+
   color: white;
 }
 
@@ -147,7 +167,11 @@ button {
   font-size: 17px;
 }
 
-/* BUTTONS */
+
+/* =========================
+   BUTTONS
+========================= */
+
 .primary-btn {
   display: inline-block;
   background: var(--yellow);
@@ -164,7 +188,11 @@ button {
   background: #ffc94e;
 }
 
-/* SECTIONS */
+
+/* =========================
+   SECTIONS
+========================= */
+
 .section {
   padding: 75px 7%;
 }
@@ -183,7 +211,11 @@ button {
   margin-bottom: 10px;
 }
 
-/* BOOKING */
+
+/* =========================
+   BOOKING SECTION
+========================= */
+
 .booking-section {
   max-width: 1150px;
   margin: -35px auto 0;
@@ -232,7 +264,11 @@ button {
   overflow-wrap: anywhere;
 }
 
-/* DESTINATIONS */
+
+/* =========================
+   DESTINATIONS
+========================= */
+
 .destinations {
   background: white;
 }
@@ -298,13 +334,18 @@ button {
   border-radius: 7px;
   padding: 8px 12px;
   font-weight: 700;
+  transition: background 0.2s;
 }
 
 .book-destination:hover {
   background: #dcecff;
 }
 
-/* BENEFITS */
+
+/* =========================
+   BENEFITS
+========================= */
+
 .benefits {
   padding: 38px 7%;
   background: var(--light);
@@ -337,7 +378,11 @@ button {
   color: #64778d;
 }
 
-/* ABOUT */
+
+/* =========================
+   ABOUT
+========================= */
+
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -370,7 +415,11 @@ button {
   color: var(--text);
 }
 
-/* CONTACT */
+
+/* =========================
+   CONTACT
+========================= */
+
 .contact-section {
   padding: 65px 20px;
   text-align: center;
@@ -382,7 +431,11 @@ button {
   margin: 14px 0 24px;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
+
 footer {
   padding: 30px 7%;
   background: var(--dark-blue);
@@ -402,8 +455,13 @@ footer p {
   font-size: 13px;
 }
 
-/* TABLET */
+
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
 @media (max-width: 850px) {
+
   .navbar {
     flex-wrap: wrap;
     gap: 12px;
@@ -422,7 +480,7 @@ footer p {
     gap: 0;
   }
 
-  .navbar nav.open {
+  .navbar nav.active {
     display: flex;
   }
 
@@ -452,8 +510,13 @@ footer p {
   }
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
 @media (max-width: 560px) {
+
   .navbar {
     padding: 12px 5%;
   }
@@ -505,4 +568,5 @@ footer p {
     align-items: flex-start;
     padding: 28px 5%;
   }
+
 }
