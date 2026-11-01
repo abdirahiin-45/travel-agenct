@@ -57,7 +57,7 @@ button {
   background: white;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 2px 12px #102b4e12;
 }
 
@@ -107,13 +107,17 @@ button {
   background: var(--dark-blue);
 }
 
+/* HAMBURGER MENU */
+
 .menu-toggle {
   display: none;
   background: var(--light);
   border: 0;
   border-radius: 8px;
   padding: 7px 12px;
-  font-size: 22px;
+  font-size: 25px;
+  color: var(--dark-blue);
+  cursor: pointer;
 }
 
 
@@ -478,6 +482,8 @@ footer p {
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
+    background: white;
+    padding: 10px 0;
   }
 
   .navbar nav.active {
